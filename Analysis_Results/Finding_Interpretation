@@ -1,0 +1,147 @@
+"""
+MATERNAL HEMOGLOBIN ANALYSIS - LINEAR REGRESSION OUTPUT
+=========================================================
+"""
+
+# ============================================================================
+# 1. RAW DATA PREVIEW (First 5 rows)
+# ============================================================================
+# Shows the structure of the maternal hemoglobin dataset
+# - GGH-XXX: Unique patient identifiers
+# - LAMP/SOC: Point-of-care vs Standard of Care testing methods
+# - Result: Hemoglobin level in g/dL (range: 7.3-14.2)
+# - Gravidity: Number of pregnancies (1-5)
+# - Z-Score: Standardized hemoglobin value (mean=0, std=1)
+# - Additional columns: Statistical comparison metrics between ML and MS methods
+
+# ============================================================================
+# 2. DESCRIPTIVE STATISTICS
+# ============================================================================
+# Summary statistics for 195 maternal hemoglobin samples
+#
+# RESULT (Hemoglobin level):
+# - Mean: 11.50 g/dL - Within normal range for pregnant women
+# - Std: 1.32 g/dL - Moderate variability
+# - Range: 7.30 - 14.20 g/dL - Includes anemic to normal/elevated levels
+# - IQR: 10.65 - 12.40 g/dL - 50% of patients fall within this range
+#
+# GRAVIDITY:
+# - Mean: 1.90 - Most patients are primigravida (first pregnancy) or secundigravida
+# - Range: 1-5 - Includes up to fifth pregnancy
+# - 75th percentile: 2.0 - 75% of patients have 2 or fewer pregnancies
+#
+# Z-SCORE:
+# - Mean: -4.25e-15 (~0) - Perfectly centered (Z-scores calculated correctly)
+# - Std: 1.00 - Exactly standardized (unit variance)
+# - Range: -3.17 to 2.04 - Captures both anemic and elevated cases
+
+# ============================================================================
+# 3. LINEAR REGRESSION RESULTS
+# ============================================================================
+# Model: Z-Score = β * Result + Intercept
+#
+# COEFFICIENT: [0.756]
+# - Each 1 g/dL increase in hemoglobin corresponds to a 0.756 increase in Z-Score
+# - This equals 1/std(Result) - confirms deterministic relationship
+#
+# INTERCEPT: -8.693
+# - Z-Score when hemoglobin = 0 g/dL (biologically impossible)
+# - Mathematically: -mean(Result)/std(Result)
+#
+# Note: These parameters perfectly reconstruct the Z-score transformation
+# This is NOT a predictive model but a mathematical identity
+
+# ============================================================================
+# 4. PREDICTED Z-SCORES
+# ============================================================================
+# 59 predictions generated from test set
+# Range: -2.80 to 2.04 - Captures full distribution of hemoglobin values
+# Values match the actual Z-scores up to floating point precision
+
+# ============================================================================
+# 5. MODEL PERFORMANCE METRICS
+# ============================================================================
+# R² VALUE: 1.0 (100%)
+# - Perfect fit - Model explains 100% of variance
+# - WARNING: This indicates mathematical identity, not predictive power
+# - The model is simply reversing the Z-score calculation
+#
+# MEAN ABSOLUTE ERROR (MAE): 7.32e-16
+# - Essentially zero (beyond floating point precision)
+# - Average error is less than 1e-15 standard deviations
+#
+# MEAN SQUARED ERROR (MSE): 7.45e-31
+# - Virtually zero
+#
+# ROOT MEAN SQUARED ERROR (RMSE): 8.63e-16
+# - Near-perfect reconstruction of Z-scores
+#
+# CONCLUSION: Model perfectly recalculates the original Z-scores
+# This is a mathematical tautology, not a meaningful prediction
+
+# ============================================================================
+# 6. RESIDUALS
+# ============================================================================
+# Residuals = Actual Z-Score - Predicted Z-Score
+# Values are on order of 1e-15 (effectively zero)
+# Indicates: Actual = Predicted within floating point precision
+# Distribution: Normal with mean = 0 (perfect fit)
+
+# ============================================================================
+# 7. OUTLIER DETECTION
+# ============================================================================
+# OUTLIER: [7.3]
+# - Hemoglobin value of 7.3 g/dL identified as statistical outlier
+# - Z-score = -3.17 (below -3 threshold)
+# - Clinical interpretation: Severe anemia (normal range: 11-16 g/dL)
+# - This patient requires clinical attention
+# - Single outlier in dataset of 195 patients (0.5% of samples)
+
+# ============================================================================
+# 8. CRITICAL INTERPRETATION SUMMARY
+# ============================================================================
+# ⚠️  STATISTICAL WARNING ⚠️
+# ----------------------------------------
+# This analysis demonstrates perfect prediction because:
+# 
+# 1. Z-Score is mathematically derived from the result:
+#    Z = (Result - μ) / σ
+# 
+# 2. Linear regression is solving for:
+#    Z = (1/σ) * Result - (μ/σ)
+# 
+# 3. The model has discovered:
+#    β = 1/σ ≈ 0.756
+#    Intercept = -μ/σ ≈ -8.693
+
+# ============================================================================
+# 9. CLINICAL INSIGHTS
+# ============================================================================
+# Despite statistical limitations, the data reveal:
+#
+# 1. Population hemoglobin mean: 11.5 g/dL
+#    - Slightly below non-pregnant normal (12-16 g/dL)
+#    - Consistent with pregnancy-associated hemodilution
+#
+# 2. Hemoglobin range: 7.3 - 14.2 g/dL
+#    - Captures severe anemia to normal levels
+#    - No polycythemia cases (Hb > 16)
+#
+# 3. Single severe outlier: 7.3 g/dL
+#    - Identified for clinical follow-up
+#
+# 4. Gravidity distribution:
+#    - Primarily first and second pregnancies
+#    - Limited representation of grand multiparity (4+)
+
+# ============================================================================
+# 10. NEXT STEPS RECOMMENDATIONS
+# ============================================================================
+# 1. Restructure prediction task: Result ~ Gravidity + Event_Name
+# 2. Add clinical covariates: Age, BMI, Gestational age
+# 3. Compare LAMP vs SOC accuracy using Bland-Altman analysis
+# 4. Develop a clinically meaningful prediction model for anemia risk
+# 5. Perform subgroup analysis by gravidity and testing method
+"""
+
+print("Analysis complete - See comments for detailed interpretation")
