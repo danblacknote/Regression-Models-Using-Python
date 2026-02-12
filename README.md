@@ -1,54 +1,48 @@
- **Maternal Hemoglobin Analysis - Linear Regression Study**
-**Project Overview**
+      #**Maternal Hemoglobin Analysis - Linear Regression Study**#
+     ##Project Overview##
+     
+     This project analyzes maternal hemoglobin levels at delivery using linear regression. The dataset contains 195 maternal patient records, including hemoglobin       results, Z-scores, gravidity (number of pregnancies), and testing method (LAMP vs SOC). 
 
-This project analyzes maternal hemoglobin levels at delivery using linear regression. The dataset contains 195 maternal patient records including hemoglobin results, Z-scores, gravidity (number of pregnancies), and testing method (LAMP vs SOC). 
+          
+           #Learning Objectives#
+          This project serves as an educational example demonstrating:
 
-
- *Learning Objectives*
-This project serves as an educational example demonstrating:
-
-*Concept*                                *What We Learned*
-Linear Regression      ----------------- How to implement and interpret model coefficients
-R² Score               ----------------- Why 1.0 is not always good — context matters
-Residual Analysis      ----------------- Checking normality, homoscedasticity, independence
-Q-Q Plots              ----------------- Visual test for normality of residuals
-Outlier Detection      ----------------- Z-score method and box plot visualization
-Data Leakage           ----------------- Why you shouldn't predict a transformed target
-GitHub Documentation  ----------------- How to clearly communicate statistical findings
-
-
-
-
- *Dataset Description*
-
-| Column | Description     | Range |
-| Questionnaire_Number     | Unique patient ID (GGH-001, etc.)  | — |
-| Event_Name            | Testing method: LAMP or SOC        | 2 categories |
-| Result                | Hemoglobin level (g/dL)            | 7.3 - 14.2 |
-| Gravidity             | Number of pregnancies              | 1 - 5 |
-| Z-Score               | Standardized hemoglobin            | -3.17 - 2.04 |
-
-
-*Sample Data:*
-
-| Questionnaire | Event | Result | Gravidity | Z-Score |
-
-| GGH-001 | LAMP | 12.3 | 1 | 0.606 |
-| GGH-002 | SOC | 11.4 | 2 | -0.074 |
-| GGH-004 | LAMP | 12.0 | 1 | 0.380 |
-| GGH-005 | LAMP | 10.4 | 1 | -0.830 |
-| GGH-006 | SOC | 13.5 | 1 | 1.514 |
+     #Concept#                                #What We Learned#
+     Linear Regression      ----------------- How to implement and interpret model coefficients
+     R² Score               ----------------- Why 1.0 is not always good — context matters
+     Residual Analysis      ----------------- Checking normality, homoscedasticity, independence
+     Q-Q Plots              ----------------- Visual test for normality of residuals
+     Outlier Detection      ----------------- Z-score method and box plot visualization
+     Data Leakage           ----------------- Why you shouldn't predict a transformed target
+     GitHub Documentation   ---------------- How to clearly communicate statistical findings
 
 
 
 
+      #Dataset Description#
+     
+      #Column#                                #Description#                            #Range#
+      Questionnaire_Number ----------------- Unique patient ID (GGH-001, etc.)         — 
+      Event_Name           ----------------- Testing method: LAMP or SOC              2 categories 
+      Result               ----------------- Hemoglobin level (g/dL)                  7.3 - 14.2 
+      Gravidity            ----------------- Number of pregnancies                    1 - 5 
+      Z-Score              ----------------- Standardized hemoglobin                 -3.17 - 2.04 
+
+
+     #Sample Data:#
+     
+     Questionnaire       Event    Result     Gravidity    Z-Score 
+     
+      GGH-001 --------- LAMP      12.3       1             0.606 
+      GGH-002 --------- SOC       11.4       2            -0.074 
+      GGH-004 --------- LAMP      12.0       1             0.380 
+      GGH-005 --------- LAMP      10.4       1            -0.830 
+      GGH-006 --------- SOC       13.5       1             1.514 
 
 
 
 
-
-
- *Analysis Steps*
+      *Analysis Steps*
 
      Load Data      ◄── Excel file with hemoglobin measurements
 
@@ -83,28 +77,28 @@ GitHub Documentation  ----------------- How to clearly communicate statistical f
 
 
 
-* Results & Interpretation*
+     * Results & Interpretation*
+     
+      Model Performance Metrics
+     
+     | Metric         | Value          | Interpretation |
+     | R² Score       | 1.0            | Perfect score — explains 100% of variance |
+     | Coefficient    | 0.756          | Each +1 g/dL Hb → +0.756 Z-Score |
+     | Intercept      | -8.693         | Z-Score = 0 when Hb = 11.5 g/dL |
+     | MAE            | 7.32e-16       | Zero prediction error |
+     | RMSE           | 8.63e-16       | Zero prediction error |
 
- Model Performance Metrics
-
-| Metric         | Value          | Interpretation |
-| R² Score       | 1.0            | Perfect score — explains 100% of variance |
-| Coefficient    | 0.756          | Each +1 g/dL Hb → +0.756 Z-Score |
-| Intercept      | -8.693         | Z-Score = 0 when Hb = 11.5 g/dL |
-| MAE            | 7.32e-16       | Zero prediction error |
-| RMSE           | 8.63e-16       | Zero prediction error |
 
 
-
- Clinical Insights (From the Data Itself)
-Despite the modeling issue, the raw data reveals useful information:
-
-| Finding           | Value              | Clinical Meaning |
-| Mean Hemoglobin   | 11.5 g/dL          | Normal for pregnancy (physiological dilution) |
-| Hemoglobin Range  | 7.3 - 14.2 g/dL    | From severe anemia to normal |
-| Outlier           | 7.3 g/dL           | 1 patient with severe anemia — needs follow-up |
-| Gravidity Effect  | Weak positive      | Slightly higher Hb in multiparous women  |
-| Testing Methods   | LAMP & SOC         | Both point-of-care and standard methods present |
+      Clinical Insights (From the Data Itself)
+     Despite the modeling issue, the raw data reveals useful information:
+     
+     | Finding           | Value              | Clinical Meaning |
+     | Mean Hemoglobin   | 11.5 g/dL          | Normal for pregnancy (physiological dilution) |
+     | Hemoglobin Range  | 7.3 - 14.2 g/dL    | From severe anemia to normal |
+     | Outlier           | 7.3 g/dL           | 1 patient with severe anemia — needs follow-up |
+     | Gravidity Effect  | Weak positive      | Slightly higher Hb in multiparous women  |
+     | Testing Methods   | LAMP & SOC         | Both point-of-care and standard methods present |
 
 
 
