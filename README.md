@@ -1,13 +1,13 @@
 # **Maternal Hemoglobin Analysis - Linear Regression Model**
 ## Project Overview
      
-     This project analyzes maternal hemoglobin levels at delivery using linear regression. The dataset contains 195 maternal patient records, including hemoglobin       results, Z-scores, gravidity (number of pregnancies), and testing method (LAMP vs SOC). 
+     This project analyzes maternal hemoglobin levels at delivery using linear regression. The dataset contains 195 maternal patient records, including hemoglobin      results, Z-scores, gravidity (number of pregnancies), and testing method (LAMP vs SOC). 
 
 
           
 ## Learning Objectives
 
-          This project serves as an educational example demonstrating:
+     This project serves as an educational example demonstrating:
 
      # Concept                                # What We Learned
      Linear Regression      ----------------- How to implement and interpret model coefficients
@@ -122,9 +122,8 @@
 
 
 
-![image alt](https://github.com/danblacknote/Regression-Models-Using-Python/blob/a3900f3de6b1516eacc08c88ba27a8cd66b90faf/Analysis_Graphs/Probability%20Plot.png)
-![image alt](https://github.com/danblacknote/Regression-Models-Using-Python/blob/a3900f3de6b1516eacc08c88ba27a8cd66b90faf/Analysis_Graphs/Z-Score%20and%20Y-Pridict%20Graph%202.png)
-![image alt](https://github.com/danblacknote/Regression-Models-Using-Python/blob/a3900f3de6b1516eacc08c88ba27a8cd66b90faf/Analysis_Graphs/Density%20Plote.png)
+![image alt](https://github.com/danblacknote/Regression-Models-Using-Python/blob/b72a7486463bbb3fa408d5ca1d143bca30baea05/Analysis_Graphs/Graphs.JPG)
+
 
 
 
