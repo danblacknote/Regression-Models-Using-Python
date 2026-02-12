@@ -7,22 +7,22 @@ This project analyzes maternal hemoglobin levels at delivery using linear regres
  *Learning Objectives*
 This project serves as an educational example demonstrating:
 
-Concept                        | What We Learned |
+*Concept*                                *What We Learned*
+Linear Regression      ----------------- How to implement and interpret model coefficients
+R² Score               ----------------- Why 1.0 is not always good — context matters
+Residual Analysis      ----------------- Checking normality, homoscedasticity, independence
+Q-Q Plots              ----------------- Visual test for normality of residuals
+Outlier Detection      ----------------- Z-score method and box plot visualization
+Data Leakage           ----------------- Why you shouldn't predict a transformed target
+GitHub Documentation  ----------------- How to clearly communicate statistical findings
 
-| Linear Regression            | How to implement and interpret model coefficients |
-| R² Score                     | Why 1.0 is not always good — context matters |
-| Residual Analysis            | Checking normality, homoscedasticity, independence |
-| Q-Q Plots                    | Visual test for normality of residuals |
-| Outlier Detection            | Z-score method and box plot visualization |
-| Data Leakage                 | Why you shouldn't predict a transformed target |
-| GitHub Documentation         | How to clearly communicate statistical findings |
 
 
 
  *Dataset Description*
 
-| Column | Description  | Range |
-| Questionnaire_Number  | Unique patient ID (GGH-001, etc.)  | — |
+| Column | Description     | Range |
+| Questionnaire_Number     | Unique patient ID (GGH-001, etc.)  | — |
 | Event_Name            | Testing method: LAMP or SOC        | 2 categories |
 | Result                | Hemoglobin level (g/dL)            | 7.3 - 14.2 |
 | Gravidity             | Number of pregnancies              | 1 - 5 |
