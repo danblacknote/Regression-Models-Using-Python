@@ -49,36 +49,35 @@ Concept                                | What We Learned |
 
 
  *Analysis Steps*
-┌─────────────────┐
-│   Load Data     │ ◄── Excel file with hemoglobin measurements
-└────────┬────────┘
+
+     Load Data      ◄── Excel file with hemoglobin measurements
+
          ↓
-┌─────────────────┐
-│ Explore Data   │ ◄── Head (), describe (), pairplot()
-└────────┬────────┘
+
+     Explore Data    ◄── Head (), describe (), pairplot()
+
          ↓
-┌─────────────────┐
-│  Train/Test     │ ◄── 70% train, 30% test
-│  Split          │
-└────────┬────────┘
+     Train/Test     ◄── 70% train, 30% test
+     Split          
+
          ↓
-┌─────────────────┐
-│ Linear Model    │ ◄── Z-Score = β·Result + α
-└────────┬────────┘
+
+    Linear Model     ◄── Z-Score = β·Result + α
+
          ↓
-┌─────────────────┐
-│  Evaluate       │ ◄── R², MAE, MSE, RMSE
-└────────┬────────┘
+
+     Evaluate       ◄── R², MAE, MSE, RMSE
+
          ↓
-┌─────────────────┐
-│  Residual       │ ◄── Distribution, Q-Q plot
-│  Analysis       │
-└────────┬────────┘
+
+     Residual        ◄── Distribution, Q-Q plot
+     Analysis       
+
          ↓
-┌─────────────────┐
-│  Outlier        │ ◄── Z-score threshold = 3
-│  Detection      │
-└─────────────────┘
+ 
+     Outlier        ◄── Z-score threshold = 3
+    Detection      
+
 
 
 
@@ -138,7 +137,10 @@ Despite the modeling issue, the raw data reveals useful information:
 
 
   *Repository Structure*
+  
 📁 Regression-Model-Using-Python/
+|
+|
 ├── 📁 Result_Graphes/
 │   ├── pairplot.png
 │   ├── predicted_vs_actual.png
@@ -146,14 +148,17 @@ Despite the modeling issue, the raw data reveals useful information:
 │   ├── qq_plot.png
 │   └── boxplot.png
 |
+|
 └── 📁 Analysis_Results/
 |       └── Finding_interpretation.md
+|
 |
 |
 ├── 📁 DataSet/
 │    └── Maternal_Hemoglobin_at_Delivery.xlsx
 |
 │
+|
 ├── 📄 README.md                  You are here
 ├── 📄 linear_regression.py       Main analysis script
 
