@@ -1,0 +1,65 @@
+📁 Maternal Hemoglobin Analysis - Linear Regression Results
+
+🧪 What We Did
+We built a linear regression model to see if we can predict **Z-Score** (standardized hemoglobin) from Result (raw hemoglobin level) in 195 maternal patients.
+
+
+📊 Model Performance
+
+| Metric        | Value     | What It Means |
+|---------------|-----------|---------------|
+| R² Score      | 1.0       | Perfect score! 100% of variation explained |
+| RMSE          | 8.63e-16  | Errors are practically ZERO |
+| MAE           | 7.32e-16  | Predictions are almost exact |
+| Coefficient   | 0.756     | Each +1 g/dL Hb increases Z-Score by 0.756 |
+| Intercept     | -8.693    | Z-Score = 0 when Hb = 11.5 g/dL |
+
+
+Z-Score is calculated from the result using this formula:
+
+> Z = (Result - Mean) ÷ Standard Deviation**
+
+Our model simply discovered this formula:
+- Coefficient = 1 ÷ Std = 0.756
+- Intercept = -Mean ÷ Std = -8.693
+
+So the model isn't learning patterns—it's just doing math we already did.
+
+
+
+📸 What the Graphs Tell Us
+
+| Graph                   | What We See   | What It Means   |
+|-------------------------|---------------------------------|
+| Predicted vs Actual     | Perfect diagonal line           | Predictions = Actual values |
+| Residual Density Plot   | Bell-shaped curve               | Errors are random & normal |
+| Q-Q Plot                | Points on straight line         | Residuals are normally distributed |
+| Box Plot                | One dot at 7.3 g/dL             | 1 outlier - severe anemia case |
+| Pair Plot               | Result & Z-Score = perfect line | Confirms mathematical relationship |
+
+
+
+🩺 Clinical Findings (Real Insights)
+
+Despite the modeling issue, the **data itself** gives us useful information:
+
+| Finding                | Value           | Interpretation |
+|------------------------|-----------------|----------------|
+|  Average Hemoglobin    | 11.5 g/dL       | Normal for pregnancy (mild dilution) |
+|  Hemoglobin Range      | 7.3 – 14.2 g/dL | From severe anemia to normal         |
+|  Outlier               | 7.3 g/dL        | 1 patient with severe anemia — needs follow-up |
+|  Gravidity Effect      | Weak positive   | Slightly higher Hb in women with more pregnancies |
+|  Testing Methods       | LAMP vs SOC     | Both methods present — can be compared |
+
+
+✅ What This Analysis DOES Confirm
+
+- ✅ Z-scores were calculated correctly
+- ✅ Data is clean and well-structured
+- ✅ Regression assumptions are understood
+- ✅ Outliers can be detected
+- ✅ You now understand **why** predicting a transformation of your target is meaningless
+
+
+
+
